@@ -1,0 +1,8 @@
+.main{}
+    .sub-main{}
+        .error-container{
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 50% 50%;
+            background: #b3c2c4;
+        }

@@ -1,0 +1,61 @@
+
+.main{}
+    .main .sub-main{}
+        .help-container{
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 20% 70% 10%;
+
+            margin: auto;
+            width: 70%;
+            height: 100%;
+
+            justify-content: center;
+
+            background: rgba(179, 194, 196, 0.99);
+            background: linear-gradient(90deg, rgba(179, 196, 191, 0.9), rgba(179, 194, 196, 0.99));
+        }
+            .instruction{
+                grid-column-start: 2;
+                grid-column-end: 3;
+                overflow: auto;
+            }
+                .instruction h3{
+                    margin: 2rem;
+                    text-align: center;
+                }
+                .img-container{
+                    justify-content: center;
+                }
+                    .div-text{
+                        margin-top: 2rem;
+                        padding: 1rem;
+                        font-weight: 500;
+                        border-radius: 0.5rem;
+                        background: linear-gradient(90deg, rgba(255, 238, 186, 0.11), rgba(179, 194, 196, 0.99));
+                    }
+                        .instruction div img{
+                            width: 80%;
+                            height: auto;
+                            margin-left: 2rem;
+                            border-radius: 0.5rem;
+                        }
+
+@media screen and (max-width: 64em){
+    .main{
+        width: 100%;
+        height: 100%;
+    }
+    .main .sub-main .help-container{
+        grid-template-columns: 0 100% 0;
+
+        margin: auto;
+        width: 100%;
+    }
+    .instruction{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        overflow: auto;
+    }
+
+}

@@ -1,0 +1,730 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, .main-container{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #e5fefc;
+    /*background: -webkit-linear-gradient(#3a4550 10%, #4f5d6d 50%, #617382 90%);*/
+    background: -webkit-linear-gradient(#6c7675 10%, #a8bbb9 50%, #e5fefc 90%);
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 9% 85% 6%;
+}
+/*==================================================================*/
+    .header{
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        /*background: #954F72;*/
+        /*background: #94aac7;*/
+        background: linear-gradient(to top, #728295 10%, #94aac7 50%, #c3d7f1 90%);
+    }
+        .menu{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+            .wheel{
+                width: 3.9rem;
+                height: 3.9rem;
+                border-radius: 50%;
+                animation-name: rotation;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+            @keyframes rotation {
+                0% {
+                    transform:rotate(0deg);
+                }
+                100% {
+                    transform:rotate(360deg);
+                }
+            }
+            nav{
+                height: 80%;
+                width: 90%;
+            }
+                .header-list{
+                    width: 100%;
+                    height: 100%;
+                    display: inline-flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    list-style: none;
+                    margin: 0;
+                }
+                    .list-items, .list-items-sel{
+                        width: 100%;
+                        margin: auto;
+                        font-family: Roboto;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 0.94rem;
+                        line-height: 4rem;
+                        color: #ffffff;
+                        border-radius: 0.3rem;
+                    }
+
+                        .select-vessel{
+                            border-radius: 0.3rem;
+                            border-width: 0;
+                        }
+                        i{
+                            width: 1.5rem;
+                        }
+                        .items-ref{
+                            width: 100%;
+                            height: 100%;
+                            text-decoration: none;
+                            color: #fafafa;
+                            padding: 1.5rem 2rem 1.5rem 2rem;
+                            border-radius: 0.3rem;
+                            transition: all ease-in-out .3s;
+                            white-space: nowrap;
+                            overflow: hidden;
+                        }
+                    .item-icon {
+                        padding: 0;
+                        margin-right: 0;
+                        width: auto;
+                        height: auto;
+                        position: center;
+                        display: none;
+                    }
+                    .list-items:hover{
+                        color: #073426;
+                        text-decoration: none;
+                        border-radius: 1rem;
+                        box-shadow: 0 0.333rem 0.375rem rgba(0,0,0,.6);
+                        transition: all ease-in-out .3s;
+                        transform: rotateY(15deg);
+                    }
+                        .list-items .items-ref:hover{
+                            color: #073426;
+                            text-decoration: none;
+                        }
+                        .items-ref:active{
+                            color: #3c464c;
+                        }
+        .auth{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            display: flex;
+            flex-direction: row;
+        }
+            .button-auth{
+                text-decoration: none;
+                display: inline-block;
+                padding: 1rem 0.6rem;
+                margin: 0.6rem 0.15rem;
+                border-radius: 0.6rem;
+                border-color: #6B7F92;
+                box-shadow: 0 0 40px 40px #a8b4c6 inset, 0 0 0 0 #94aac7;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                letter-spacing: 2px;
+                color: white;
+                transition: .15s ease-in-out;
+            }
+            .button-auth:hover{
+                box-shadow: 0 0 10px 0 #94aac7 inset, 0 0 10px 4px #94aac7;
+                color: #94aac7;
+            }
+    .mobil-menu{
+        display: none;
+        width: 100%;
+        height: 0;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        z-index: 100;
+        background-color: #9eb1cd;
+    }
+                .auth-mobil{
+                    display: none;
+                    flex-direction: row;
+                }
+/*=============================================================================================*/
+@media screen and (max-width: 64em){
+    .header{
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        /*background: #954F72;*/
+        background: #94aac7;
+        /*background: linear-gradient(to top, #728295 10%, #9eb1cd 50%, #c3d7f1 90%);*/
+    }
+        .menu{
+            justify-content: flex-end;
+        }
+            .header .menu .wheel{
+                width: 50px;
+                height: 50px;
+            }
+                .header .menu .wheel svg{
+                    width: 50px;
+                    height: 50px;
+                }
+            nav{
+                margin-left: 10%;
+            }
+             /*Убираем пункты меню за исключением 1го и 2го*/
+                    ul.header-list li:not(:nth-child(2)){
+                        display: none;
+                    }
+                        .items-ref{
+                            text-decoration: none;
+                            color: #fafafa;
+                            padding: 0.5rem;
+                            border-radius: 5px;
+                            transition: all ease-in-out .3s;
+                        }
+                    .header nav .header-list .item-icon{
+                        float: left;
+                        display: inline-block;
+                        padding-right: 0;
+                        position: center;
+                        text-decoration: none;
+                        font-size: 2.5rem;
+                        color: #fafafa;
+                        border-radius: 50%;
+                        transition: all ease-in-out .3s;
+                    }
+        .auth{
+            display: none;
+        }
+
+
+    .mobil-menu{
+        width: 100%;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        z-index: 100;
+        background-color: #9eb1cd;
+    }
+        .mobil-header-list{
+            display: block;
+            flex-direction: column;
+            width: 100%;
+            margin: 0;
+        }
+            .mobil-header-list li{
+                display: block;
+                flex-direction: column;
+                width: 100%;
+                line-height: 3rem;
+                margin: 0;
+                padding: 0.3rem 1rem;
+                border-style: solid;
+                border-width: 2px 1px 2px 1px;
+                border-color: #525e68;
+                border-radius: 0.2rem;
+                font-size: 1.3rem;
+                /*background-color: #9eb1cd;*/
+                background: linear-gradient(to top, #728295 10%, #9eb1cd 50%, #c3d7f1 90%);
+                opacity: 95%;
+            }
+                .auth-mobil{
+                    display: flex;
+                    flex-direction: row;
+                }
+                    .button-auth{
+                        width: 50%;
+                        height: auto;
+                        max-height: 5rem;
+                        padding: 0;
+                        margin: 0;
+
+                    }
+}
+/*=============================================================================================*/
+@media screen and (max-width: 64em){
+    .main{
+        width: 100%;
+        height: 100%;
+    }
+        .main .sub-main{
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll; /* прокрутка по вертикали */
+            background: rgba(141, 172, 170, 0.5);
+            justify-content: center;
+        }
+            .main .sub-main .inner-container-config{
+                grid-template-columns: 40% 60%;
+            }
+                .main .sub-main .inner-container-config .vessel5{
+                    width: 90%;
+                }
+                .main .sub-main .inner-container-config .vessel3{
+                    width: 95%;
+                    height: 98%;
+                }
+                    /*.main .sub-main .inner-container-config .vessel3 .form-large{*/
+                    /*    display: none;*/
+                    /*}*/
+                    /*.main .sub-main .inner-container-config .vessel3 .form-small{*/
+                    /*     display: block;*/
+                    /*}*/
+                .main .sub-main .inner-container-config .vessel4{
+                    width: 90%;
+                }
+                .main .sub-main .inner-container .vessel{
+                    width: 90%;
+                }
+                .main .sub-main .inner-container .vessel-particulars{
+                    width: 90%;
+                }
+                    .main .sub-main .inner-container .vessel-particulars .vessel-particulars-head{
+                        padding-right: 10%;
+                    }
+                    .main .sub-main .inner-container .vessel-particulars .vessel-particulars-body{
+                        padding-left: 10%;
+                    }
+    .cookie-msg{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 51em) and (orientation: landscape){
+    .main-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 16% 75% 9%;
+    }
+    .sub-main .inner-container{
+        height: 200%;
+        overflow-y: scroll; /* прокрутка по вертикали */
+    }
+
+}
+
+/*=============================================================================================*/
+/*=============================================================================================*/
+    .main{
+        width: 100%;
+        height:100%;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        z-index: 99;
+        background-image: url("../img/man3.png");
+        background-repeat: repeat;
+    }
+        .sub-main{
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            background: rgba(141, 172, 170, 0.5);
+            justify-content: center;
+        }
+            .error-container{
+                display: grid;
+                width: 100%;
+                height: 100%;
+                grid-template-rows: 40% 20% 40%;
+                grid-template-columns: 20% 60% 20%;
+                /*background: #b3c2c4;*/
+            }
+                .errorUpper{
+                    width: 100%;
+                    height: 100%;
+                    grid-column: 1/4;
+                    grid-row: 1/2;
+                }
+                .errorCenter{
+                    width: 100%;
+                    height: 100%;
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+
+                }
+                    .errorCenter h3{
+                        width: 100%;
+                        padding: 1rem;
+                        text-align: center;
+                        background: #212931;
+                        color: #fafafa;
+                    }
+                .errorLover{
+                    width: 100%;
+                    height: 100%;
+                    grid-column: 1/4;
+                    grid-row: 3/4;
+                }
+        #feedbackAdmin{
+            overflow: auto;
+        }
+            .inner-container{
+                display: grid;
+                grid-template-rows: 50% 50%;
+                grid-template-columns: 1fr;
+
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                background: rgba(141, 172, 170, 0.5);
+                justify-content: center;
+            }
+
+            .inner-container-config{
+                display: grid;
+                grid-template-columns: 20% 80%;
+                grid-template-rows: 90% 10%;
+
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                background: rgba(141, 172, 170, 0.5);
+                justify-content: center;
+            }
+
+                /* Слайдер: */
+                .vessel{
+                    position: relative;
+                    width: 60%;
+                    max-width: 38rem;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+
+                    /*background-image: url("../img/CAP_SAN_VINCENT.jpg");*/
+                    /*background-repeat: no-repeat;*/
+                    /*background-position: center;*/
+                    border-radius: 1rem;
+                    /*opacity: 100%;*/
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+                    .vessel-image{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 1rem;
+                    }
+                    .vessel-image:hover{
+                        transition: all ease-in-out .3s;
+                        transform: rotateZ(0.5deg);
+                    }
+
+                    /* Картинка масштабируется по отношению к родительскому элементу: */
+                    .item img {
+                        /* Элемент меняет размер так, чтобы заполнить блок и сохранить пропорции: */
+                        position: absolute;
+                        object-fit: cover;
+                        width: 100%;
+                        max-width: 100%;
+                        max-height: 100%;
+                        border-radius: 17px;
+                    }
+
+                    /* Кнопки назад и вперёд: */
+                    .vessel .previous, .vessel .next {
+                        /* Добавляет курсору иконку, когда тот оказывается над кнопкой: */
+                        cursor: pointer;
+                        /* Положение элемента задаётся относительно границ браузера: */
+                        position: absolute;
+                        top: 50%;
+                        width: auto;
+                        margin-top: -22px;
+                        padding: 16px;
+                        /* Оформление самих кнопок: */
+                        color: white;
+                        font-weight: bold;
+                        font-size: 16px;
+                        /* Плавное появление фона при наведении курсора: */
+                        transition: 0.6s ease;
+                        /* Скругление границ: */
+                        border-radius: 0 3px 3px 0;
+                    }
+                    .vessel .next {
+                        right: 0;
+                        border-radius: 3px 0 0 3px;
+                    }
+
+                    /* При наведении курсора на кнопки добавляем фон кнопок: */
+                    .vessel .previous:hover,
+                    .vessel .next:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+
+                    /* Анимация слайдов: */
+                    .vessel .item {
+                        animation-name: fade;
+                        animation-duration: 1.5s;
+                    }
+                    @keyframes fade {
+                        /* Устанавливаем и изменяем степень прозрачности: */
+                        from {
+                            opacity: 0.4
+                        }
+                        to {
+                            opacity: 1
+                        }
+                    }
+                    /*Сообщение об ошибке на странице регистрации*/
+                                .reg-Redirect{
+                                    margin: 1rem 0;
+                                    padding: 0.5rem;
+                                    background: rgba(179, 194, 196, 0.8);
+                                    border-radius: 0.5rem;
+
+                                    alignment: center;
+                                }
+                                .error-msg{
+                                    margin: 1rem 0;
+                                    padding: 0.5rem;
+                                    background: rgba(245, 194, 194, 0.3);
+                                    border-style: solid;
+                                    border-width: thin;
+                                    border-radius: 0.5rem;
+                                    border-color: #a80011;
+                                    font-weight: bold;
+                                    alignment: center;
+                                }
+                                .success-msg{
+                                    margin: 1rem 0;
+                                    padding: 0.5rem;
+                                    background: rgba(186, 239, 220, 0.3);
+                                    border-style: solid;
+                                    border-width: thin;
+                                    border-radius: 0.5rem;
+                                    border-color: #00a86d;
+                                    font-weight: bold;
+                                    alignment: center;
+                                }
+                .vessel2{
+                    position: relative;
+                    width: 60%;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+
+                    /*background-image: url("../img/CAP_SAN_VINCENT.jpg");*/
+                    /*background-repeat: no-repeat;*/
+                    /*background-position: center;*/
+                    border-radius: 17px;
+                    /*opacity: 100%;*/
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+
+                .vessel3 {
+                    position: relative;
+                    width: 60%;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 2/3;
+                    grid-row: 1/3;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+                    .vessel3 form .form-group{
+                        margin-bottom: 0.3rem;
+                    }
+                        .tank-submit{
+                            margin-bottom: 1rem;
+                        }
+                .vessel4{
+                    position: relative;
+                    width: 60%;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/3;
+                    grid-row: 1/2;
+
+                    /*background-image: url("../img/CAP_SAN_VINCENT.jpg");*/
+                    /*background-repeat: no-repeat;*/
+                    /*background-position: center;*/
+                    border-radius: 17px;
+                    /*opacity: 100%;*/
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+                    .container-in-config-for-image{
+                        position: relative;
+
+                        width: 40%;
+                        height: 20%;
+                    }
+
+                .vessel5 {
+                    position: relative;
+                    width: 60%;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                }
+                .vessel6 {
+                    position: relative;
+                    width: 60%;
+                    height: 90%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/2;
+                    grid-row: 2/3
+                }
+                .vessel7 {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 2/3;
+                    grid-row: 1/3
+                }
+                .vessel8 {
+                    position: relative;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 16% 14% 14% 14% 14% 14% 14%;
+                    width: 100%;
+                    height: 100%;
+                    margin: auto;
+                    object-fit: cover;
+                    grid-column: 1/2;
+                    grid-row: 1/3
+                }
+                .tank-buttons{
+                }
+
+
+            .vessel-particulars{
+                width: 60%;
+                max-width: 38rem;
+                height: 90%;
+                margin: auto;
+                grid-column: 1/2;
+                grid-row: 2/3;
+                background: #fafafa;
+                border-radius: 17px;
+                display: grid;
+                grid-template-columns: 25% 25% 25% 25%;
+                grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+            }
+                .vessel-particulars-head{
+                    text-align: right;
+                    padding-top: 0.3rem;
+                    padding-right: 25%;
+                    border: #6B7F92;
+                    border-style: solid;
+                    border-width: thin;
+                    background: #94aac7;
+                    font-weight: bolder;
+                    color: #3c464c;
+                }
+                .vessel-particulars-body{
+                    text-align: left;
+                    padding-top: 0.3rem;
+                    padding-left: 25%;
+                    border: #6B7F92;
+                    border-style: solid;
+                    border-width: thin;
+                    background: #e5fefc;
+                    font-weight: 500;
+                    color: #6B7F92;
+                }
+
+        /*@media screen and (max-width: 64em){*/
+        /*    .vessel-particulars .vessel-particulars-head{*/
+        /*        padding-top: 1.3rem;*/
+        /*        font-size: 1.7rem;*/
+        /*    }*/
+        /*    .vessel-particulars .vessel-particulars-body{*/
+        /*        padding-top: 1.3rem;*/
+        /*        font-size: 1.7rem;*/
+        /*    }*/
+        /*}*/
+    .cookie-msg{
+        display: none;
+        justify-content: space-around;
+        align-items: center;
+        width: 70%;
+        /*max-width: 50rem;*/
+        height: 8%;
+        margin: auto;
+        margin-bottom: 0;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        background: #23272b;
+        color: #ffeeba;
+        z-index: 100;
+    }
+    #cookieMsg.show{
+        display: inline-flex;
+    }
+    /*=================================================================*/
+    .footer{
+        width: 100%;
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 3/4;
+        background: #6B7F92;
+        background: -webkit-linear-gradient(top, #3a4550 10%, #4f5d6d 50%, #617382 90%);
+        /*background: -webkit-linear-gradient(top, #292E49,   #536976);*/
+
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 1fr;
+    }
+        .footer-content{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            color: #e0e0e0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .footer-content h3{
+            margin: 0;
+            font-family: Roboto;
+        }
+        .footer-content a{
+            color: #fafafa;
+        }
+        .footer-icon{
+            background: #3c464c;
+        }
+        .my-fas{
+            font-size: x-large;
+        }
+        .my-fas:hover{
+            color: #1d40a7;
+        }
+@media screen and (max-width: 51em){
+        .footer{
+            grid-template-columns: 10% 80% 10%;
+        }
+    }
